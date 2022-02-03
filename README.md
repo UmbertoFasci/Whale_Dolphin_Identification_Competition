@@ -22,10 +22,18 @@ The data in this competition contains images of over **15,000** unique individua
 |test_images/| A folder containing the test images; these are the images which the task of this competition is centered on. The task is to predict `individual_id` and should be predicted as `new_individual`.|
 |sample_submission.csv| A sample submission file in the correct format.|
 
-
-
 ## Data Exploration
 
+The modules used to explore this competition's dataset are imported as follows...
+
+```python
+import numpy as np
+import pandas as pd
+import os
+import matplotlib.pyplot as plt
+import seaborn as sns
+import cv2
+```
 
 
 ## Data Preperation
