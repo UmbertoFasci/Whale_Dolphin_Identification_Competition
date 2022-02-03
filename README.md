@@ -38,8 +38,9 @@ We can then obtain the files and folders of the upper level competition dataset 
 ```python
 print(f"Competition Files and Folders: {os.listdir('/kaggle/input/happy-whale-and-dolphin')}")
 ```
-<code>Competition Files and Folders: ['sample_submission.csv', 'train_images', 'train.csv', 'test_images']</code>
-
+```output
+Competition Files and Folders: ['sample_submission.csv', 'train_images', 'train.csv', 'test_images']
+```
 Next we can load the appropriate files to begin exploring:
 ```python
 train_df = pd.read_csv('/kaggle/input/happy-whale-and-dolphin/train.csv')
@@ -60,22 +61,53 @@ train_df.head()
 |4| xxxx5.jpg| species_name5| xxxxid5|
 
 Please visit my [competition kernel](https://www.kaggle.com/umbertofasci/happy-whales-and-dolphins-starter) to view this data more accurately.
-You can also visit the [rendered version]() on github.
+You can also visit the [rendered version](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/happy-whales-and-dolphins-starter.ipynb) on github.
 
 After exploring this data thoroughly we can find some spelling errors within the `species` column. To fix this we can simply relate these incorrect names to the correct ones and save it to the original dataframe:
 ```python
 train_df.loc[train_df.species == 'kiler_whale', 'species'] = 'killer_whale'
 train_df.loc[train_df.species == 'bottlenose_dolpin', 'species'] = 'bottlenose_dolphin'
 ```
-We can now look at the `samp_submission_df` representing the format in which the competition file should be submitted.
+We can now look at the `samp_submission_df` representing the format in which the competition file should be submitted:
 ```python
 samp_submission_df.head()
 ```
 | |`image`|`predictions`|
 |-|-------|-------------|
 |0| xxxx1.jpg| xxxxid1 xxxxid2 xxxxid3 xxxid4|
+|1| xxxx2.jpg| xxxxid5 xxxxid6 xxxxid7 xxxid8|
 
-
+We can now count the number of unique images, species, and individual IDs within `train_df` using the `nunique()` method which returns an integer value of the number of unique values in a column:
+```python
+print(f"Images in train index file: {train_df.image.nunique()}")
+print(f"Species in train index file: {train_df.species.nunique()}")
+print(f"Individual IDs in train index file: {train_df.individual_id.nunique()}")
+```
+We then determine the number of images within the test and train images folders:
+```python
+print(f"Images in train images folder: {len(os.listdir('/kaggle/input/happy-whale-and-dolphin/train_images'))}")
+print(f"Images in test images folder: {len(os.listdir('/kaggle/input/happy-whale-and-dolphin/test_images'))}")
+```
+```output
+Images in train index file: 51033 
+Species in train index file: 28
+Individual IDs in train index file: 15587
+Images in train images folder: 51033
+Images in test images folder: 27956
+```
+Let's look at the species' images frequency within `train_df`:
+```python
+spec_freq = train_df["species"].value_counts()
+df = pd.DataFrame({'Species': spec_freq.index,
+                   'Images': spec_freq.values})
+plt.figure(figsize = (12, 6))
+plt.title('Distribution of Species Images - Train Dataset')
+sns.set_color_codes("deep")
+s = sns.barplot(x = "Species", y="Images", data=df)
+s.set_xticklabels(s.get_xticklabels(), rotation=90)
+locs, labels = plt.xticks()
+plt.show()
+```
 
 ## Data Preperation
 
