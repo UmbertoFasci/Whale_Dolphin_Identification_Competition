@@ -126,6 +126,23 @@ plt.show()
 ```
 ![Distribution of Species Images - Training Set](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/Distribution_of_Species_ID.png)
 
+Checking if the images listed in `train_df` are identical with those found within the list of images in `train_images`:
+```python
+train_df_list = list(train_df.image.unique())
+train_images_list = list(os.listdir('/kaggle/input/happy-whale-and-dolphin/train_images'))
+delta = set(train_df_list) & set(train_images_list) # iterable conversion
+minus = set(train_df_list) - set(train_images_list) # difference between sets
+print(f"Images in train dataset: {len(train_df_list)}\nImages in train folder: {len(train_images_list)}\nIntersection: {len(delta)}\nDifference: {len(minus)}")
+```
+```output
+Images in train dataset: 51033
+Images in train folder: 51033
+Intersection: 51033
+Difference: 0
+```
+As we can see, there is 100% intersection with 0 differences; indicating that the images listed in `train_df` are identical to the name of the images in the `train_images` folder. 
+
+
 ## Data Preperation
 **In Progress**
 
