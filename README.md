@@ -60,12 +60,22 @@ train_df.head()
 |4| xxxx5.jpg| species_name5| xxxxid5|
 
 Please visit my [competition kernel](https://www.kaggle.com/umbertofasci/happy-whales-and-dolphins-starter) to view this data more accurately.
+You can also visit the [rendered version]() on github.
 
 After exploring this data thoroughly we can find some spelling errors within the `species` column. To fix this we can simply relate these incorrect names to the correct ones and save it to the original dataframe:
 ```python
 train_df.loc[train_df.species == 'kiler_whale', 'species'] = 'killer_whale'
 train_df.loc[train_df.species == 'bottlenose_dolpin', 'species'] = 'bottlenose_dolphin'
 ```
+We can now look at the `samp_submission_df` representing the format in which the competition file should be submitted.
+```python
+samp_submission_df.head()
+```
+| |`image`|`predictions`|
+|-|-------|-------------|
+|0| xxxx1.jpg| xxxxid1 xxxxid2 xxxxid3 xxxid4|
+
+
 
 ## Data Preperation
 
