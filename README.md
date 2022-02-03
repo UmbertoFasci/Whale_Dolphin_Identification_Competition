@@ -108,7 +108,23 @@ s.set_xticklabels(s.get_xticklabels(), rotation=90)
 locs, labels = plt.xticks()
 plt.show()
 ```
-**In Progress**
+![Distribution of Species Individual IDs - Training Set](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/Distribution_of_Species_imgs.png)
+Now we visualize the individual IDs associated with each species:
+```python
+id_freq = train_df.groupby(["species"])["individual_id"].nunique()
+df = pd.DataFrame({'Species': id_freq.index,
+                   'Unique ID Count': id_freq.values
+                  })
+df = df.sort_values(['Unique ID Count'], ascending=False)
+plt.figure(figsize = (12,6))
+plt.title('Distribution of Species Individual IDs - train dataset')
+sns.set_color_codes("deep")
+s = sns.barplot(x = 'Species', y="Unique ID Count", data=df)
+s.set_xticklabels(s.get_xticklabels(),rotation=90)
+locs, labels = plt.xticks()
+plt.show()
+```
+![Distribution of Species Images - Training Set](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/Distribution_of_Species_ID.png)
 
 ## Data Preperation
 **In Progress**
