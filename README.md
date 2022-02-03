@@ -11,7 +11,7 @@
 
 ## Overview
 
-For the purpose of showcasing my workflow, this readme will outline the process of going through the [Whale and Dolphin Identification](https://www.kaggle.com/c/happy-whale-and-dolphin/overview) Kaggle competition. For more overview information regarding this competition please visit its overview webpage which can be found on its kaggle page.
+For the purpose of showcasing my workflow, this readme will outline the process of going through the [Whale and Dolphin Identification](https://www.kaggle.com/c/happy-whale-and-dolphin/overview) Kaggle competition. For more overview information regarding this competition please visit its overview webpage.
 
 The data in this competition contains images of over **15,000** unique individual marine mammals from **30** different species collected from **28** different research organizations. The individuals have been manually identified and given an `individual_id`. The task of this competition is to correctly identify these individuals in images. In modelling terms, this `individual_id` value is the target variable for prediction. 
 
