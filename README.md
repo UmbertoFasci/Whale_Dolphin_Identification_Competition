@@ -108,9 +108,13 @@ s.set_xticklabels(s.get_xticklabels(), rotation=90)
 locs, labels = plt.xticks()
 plt.show()
 ```
+**In Progress**
 
 ## Data Preperation
+**In Progress**
 
 ## Convolutional Neural Network Model
+**In Progress**
 
 ## More models
+**In Progress**
