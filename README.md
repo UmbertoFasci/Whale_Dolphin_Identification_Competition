@@ -109,6 +109,9 @@ locs, labels = plt.xticks()
 plt.show()
 ```
 ![Distribution of Species Individual IDs - Training Set](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/Distribution_of_Species_imgs.png)
+
+**The `Bottlenose Dolphin` species has the most present images while the `Beluga Whale` and `Humpback Whale` come in as the second heighest present group.**
+
 Now we visualize the individual IDs associated with each species:
 ```python
 id_freq = train_df.groupby(["species"])["individual_id"].nunique()
