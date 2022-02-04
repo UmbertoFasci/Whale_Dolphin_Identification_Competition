@@ -108,7 +108,7 @@ s.set_xticklabels(s.get_xticklabels(), rotation=90)
 locs, labels = plt.xticks()
 plt.show()
 ```
-![Distribution of Species Individual IDs - Training Set](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/Distribution_of_Species_imgs.png)
+![Distribution of Species Images - Training Set](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/Distribution_of_Species_imgs.png)
 
 **The `Bottlenose Dolphin` species has the most present images while the `Beluga Whale` and `Humpback Whale` come in as the second heighest present group.**
 
@@ -127,7 +127,9 @@ s.set_xticklabels(s.get_xticklabels(),rotation=90)
 locs, labels = plt.xticks()
 plt.show()
 ```
-![Distribution of Species Images - Training Set](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/Distribution_of_Species_ID.png)
+![Distribution of Species IDs - Training Set](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/Distribution_of_Species_ID.png)
+
+**The `Dusky Dolphin`, `Humpback Whale`, and `Blue Whale` are the species which represents the most individual identifications.**
 
 Checking if the images listed in `train_df` are identical with those found within the list of images in `train_images`:
 ```python
