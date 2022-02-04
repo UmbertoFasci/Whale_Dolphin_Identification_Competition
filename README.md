@@ -7,7 +7,7 @@
  * [Data Exploration](#data-exploration)
  * [Data Preperation - CNN](#data-preperation---cnn)
  * [Convolutional Neural Network Model (CNN)](#convolutional-neural-network-model-cnn)
- * [More Models](#more-models)
+ * [t-Distributed Stochastic Neighbor Embedding (tSNE)](#t---distributed-stochastic-neighbor-embedding-tSNE)
 
 ## Overview
 
@@ -181,9 +181,11 @@ Number of different image sizes in 2500 samples: 1341
 |**Experiment**|**Description**|**File Link**|
 |--------------|---------------|--------|
 |Tensorflow Smart Resize|Resize images to a target size without aspect ratio distortion. [Reference](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/smart_resize)|[Incoming]|
+|Tensorflow ImageDataGenerator|Generate batches of tensor image data with real-time data augmentation. [Reference](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator#flow_from_directory)|[Incoming]|
+|COnvolutional Variational Autoencoder|Takes high dimensional input data and compresses it into a smaller representation. [Reference](https://www.tensorflow.org/tutorials/generative/cvae)|[Incoming]|
 
 ## Convolutional Neural Network Model (CNN)
 **In Progress**
 
-## More models
+## t-Distributed Stochastic Neighbor Embedding (tSNE)
 **In Progress**
