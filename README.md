@@ -144,10 +144,42 @@ Intersection: 51033
 Difference: 0
 ```
 As we can see, there is 100% intersection with 0 differences; indicating that the images listed in `train_df` are identical to the name of the images in the `train_images` folder. 
+#
+Let's see the range of image dimensions present in the `train_images` dataset.
+First we can create a function which returns the shape of a given image filename:
+```python
+def show_image_size(file_name):
+    image = cv2.imread('/kaggle/input/happy-whale-and-dolphin/train_images/' + file_name)
+    return list(image.shape)
+```
 
+Using a image sample size of **25000** (5% of the dataset), let's set up a new dataframe containing the dimensions of the sample images which will include their `width`, `height`, and `color channels`:
+```python
+import time
+sample_size = 2500
+time_alpha = time.time() # start time
+train_sample_df = train_df.sample(sample_size)
+sample_img_func = np.stack(train_sample_df['image'].apply(show_image_size))
+dimensions_df = pd.DataFrame(sample_img_func, columns=['width', 'height', 'c_channels'])
+print(f"Total run time for {sample_size} images: {round(time.time()-time_alpha, 2)} sec.")
+```
+```output
+Total run time for 2500 images: 188.83 sec.
+```
+Now lets include `dimensions_df` to our existing sample dataframe and determine the amount of unique dimensions.
+```python
+train_img_df = pd.concat([train_sample_df, dimensions_df], axis=1, sort=False)
+print(f"Number of different image sizes in {2500} samples: {train_img_df.groupby(['width', 'height','c_channels']).count().shape[0]}")
+```
+```output
+Number of different image sizes in 2500 samples: 1341
+```
 
 ## Data Preperation
 **In Progress**
+Considering:
+* Tensorflow ImageDataGenerator
+* 
 
 ## Convolutional Neural Network Model
 **In Progress**
