@@ -177,9 +177,9 @@ Number of different image sizes in 2500 samples: 1341
 
 ## Data Preperation
 **In Progress**
+
 Considering:
 * Tensorflow ImageDataGenerator
-* 
 
 ## Convolutional Neural Network Model
 **In Progress**
