@@ -182,7 +182,7 @@ Number of different image sizes in 2500 samples: 1341
 |--------------|---------------|--------|
 |Tensorflow Smart Resize|Resize images to a target size without aspect ratio distortion. [Reference](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/smart_resize)|[Incoming]|
 |Tensorflow ImageDataGenerator|Generate batches of tensor image data with real-time data augmentation. [Reference](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator#flow_from_directory)|[Incoming]|
-|COnvolutional Variational Autoencoder|Takes high dimensional input data and compresses it into a smaller representation. [Reference](https://www.tensorflow.org/tutorials/generative/cvae)|[Incoming]|
+|Convolutional Variational Autoencoder|Takes high dimensional input data and compresses it into a smaller representation. [Reference](https://www.tensorflow.org/tutorials/generative/cvae)|[Incoming]|
 
 ## Convolutional Neural Network Model (CNN)
 **In Progress**
