@@ -174,7 +174,7 @@ print(f"Number of different image sizes in {2500} samples: {train_img_df.groupby
 ```output
 Number of different image sizes in 2500 samples: 1341
 ```
-
+**NOTE: While there are many different image dimensions concerning height and width, the color channels remain the same throughout the 2500 sample size.**
 ## Data Preperation
 **In Progress**
 
