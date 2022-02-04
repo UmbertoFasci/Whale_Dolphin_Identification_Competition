@@ -5,7 +5,7 @@
 
  * [Overview](#overview)
  * [Data Exploration](#data-exploration)
- * [Data Preperation - CNN](#data-preperation---cnn)
+ * [Data Preperation](#data-preperation)
  * [Convolutional Neural Network Model (CNN)](#convolutional-neural-network-model-cnn)
  * [t-Distributed Stochastic Neighbor Embedding (tSNE)](#t---distributed-stochastic-neighbor-embedding-tSNE)
 
@@ -175,7 +175,7 @@ print(f"Number of different image sizes in {2500} samples: {train_img_df.groupby
 Number of different image sizes in 2500 samples: 1341
 ```
 **NOTE: While there are many different image dimensions concerning height and width, the color channels remain the same throughout the 2500 sample size.**
-## Data Preperation - CNN
+## Data Preperation
 
 **Experiments**
 |**Experiment**|**Description**|**File Link**|
