@@ -176,10 +176,11 @@ Number of different image sizes in 2500 samples: 1341
 ```
 **NOTE: While there are many different image dimensions concerning height and width, the color channels remain the same throughout the 2500 sample size.**
 ## Data Preperation - CNN
-**In Progress**
 
-Considering:
-* Tensorflow ImageDataGenerator
+**Experiments**
+|**Experiment**|**Description**|**File Link**|
+|--------------|---------------|--------|
+|Tensorflow Smart Resize|Resize images to a target size without aspect ratio distortion. [Reference](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/smart_resize)|[Incoming]|
 
 ## Convolutional Neural Network Model (CNN)
 **In Progress**
