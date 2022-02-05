@@ -292,7 +292,7 @@ Now we can set up our preprocess_input and our base model:
 ```python
 preprocess_input = tf.keras.applications.efficientnet.preprocess_input
 
-base_model = EfficientNetB0(input_shape=(224, 224, 3), include_top=False, weights='imagenet')
+base_model = EfficientNetB0(input_shape=(224, 224, 3), include_top=False, weights='imagenet', classifier_activation='softmax)
 base_model.trainable=True
 prediction_layer = tf.keras.layers.Dense(len(id_unique))
 ```
