@@ -292,6 +292,14 @@ EfficientNet is among the most efficient models, hence its name, that reachers h
 ![EfficientNetB0 Architecture](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/EfficientNetB0_Arch.png)
 This image was found at this [Medium article](https://towardsdatascience.com/complete-architectural-details-of-all-efficientnet-models-5fd5b736142) by Vardan Agarwal.
 For more information about EfficientNetB0 and the other EfficientNet models please visit this [website](https://keras.io/examples/vision/image_classification_efficientnet_fine_tuning/) which documents them thoroughly.
+#
+Importing EfficientNEtB0
+```python
+from tensorflow.keras.applications.efficientnet import EfficientNetB0
+```
+Now we can set up our preprocess_input and our base model:
+```python
 
+```
 ## t-Distributed Stochastic Neighbor Embedding (tSNE)
 **In Progress**
