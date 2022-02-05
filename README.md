@@ -349,7 +349,83 @@ Trainable params: 24,444,767
 Non-trainable params: 42,023
 ______________________________________________________________
 ```
-**Model fit in progress**
+Fit the model:
+```python
+model.fit(ds, epochs=5)
+```
+```output
+Epoch 1/5
+
+2022-02-05 02:59:52.405200: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:185] None of the MLIR Optimization Passes are enabled (registered 2)
+2022-02-05 03:00:05.004541: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 348 of 1024
+2022-02-05 03:00:15.010811: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 730 of 1024
+2022-02-05 03:00:23.013789: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
+2022-02-05 03:00:25.414705: I tensorflow/stream_executor/cuda/cuda_dnn.cc:369] Loaded cuDNN version 8005
+
+1595/1595 [==============================] - 1533s 932ms/step - loss: 9.7631 - accuracy: 3.9190e-05
+Epoch 2/5
+
+2022-02-05 03:26:26.881789: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 367 of 1024
+2022-02-05 03:26:36.927206: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 788 of 1024
+2022-02-05 03:26:43.352816: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
+
+1595/1595 [==============================] - 1460s 899ms/step - loss: 9.6543 - accuracy: 3.9190e-05
+Epoch 3/5
+
+2022-02-05 03:50:48.835766: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 367 of 1024
+2022-02-05 03:50:58.881305: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 767 of 1024
+2022-02-05 03:51:06.431605: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
+
+1595/1595 [==============================] - 1465s 901ms/step - loss: 9.6543 - accuracy: 3.9190e-05
+Epoch 4/5
+
+2022-02-05 04:16:10.717582: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 342 of 1024
+2022-02-05 04:16:20.749065: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 710 of 1024
+2022-02-05 04:16:29.193959: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
+
+1595/1595 [==============================] - 1486s 914ms/step - loss: 9.6543 - accuracy: 3.9190e-05
+Epoch 5/5
+
+2022-02-05 04:41:32.684198: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 326 of 1024
+2022-02-05 04:41:42.702428: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 701 of 1024
+2022-02-05 04:41:51.544939: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
+
+1595/1595 [==============================] - 1489s 915ms/step - loss: 9.6543 - accuracy: 3.9190e-05
+
+<keras.callbacks.History at 0x7fc06ba69550>
+```
+#
+## Formatting and Submitting Predictions
+First, let's take a look again at the sample_submission.csv:
+```python
+samp_submission_df.head()
+```
+```output
+ 	      image 	                              predictions
+0 	000110707af0ba.jpg 	37c7aba965a5 114207cab555 a6e325d8e924 19fbb96...
+1 	0006287ec424cb.jpg 	37c7aba965a5 114207cab555 a6e325d8e924 19fbb96...
+2 	000809ecb2ccad.jpg 	37c7aba965a5 114207cab555 a6e325d8e924 19fbb96...
+3 	00098d1376dab2.jpg 	37c7aba965a5 114207cab555 a6e325d8e924 19fbb96...
+4 	000b8d89c738bd.jpg 	37c7aba965a5 114207cab555 a6e325d8e924 19fbb96...
+```
+Okay! Now that I have taken a good look at how the submissions should look like I will now format the prediction the EfficientNetB0 makes. Firstly, I will make a test dataset:
+```python
+test_image_paths = ['/kaggle/input/happy-whale-and-dolphin/test_images/' + img for img in samp_submission_df['image']]
+test_path_ds = tf.data.Dataset.from_tensor_slices(test_image_paths)
+test_image_ds = test_path_ds.map(load_and_process, num_parallel_calls=tf.data.experimental.AUTOTUNE)
+test_ds = test_image_ds.batch(32).prefetch(buffer_size=tf.data.experimental.AUTOTUNE)
+```
+Now I can directly predict on the test dataset I have created `test_ds`:
+```python
+%%time
+
+pred = model.predict(test_ds)
+```
+**add output**
+
+
+
+
 ## Experiments
 |**Experiment**|**Description**|**File Link**|
 |--------------|---------------|--------|
