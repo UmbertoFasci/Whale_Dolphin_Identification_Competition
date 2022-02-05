@@ -6,7 +6,7 @@
  * [Overview](#overview)
  * [Data Exploration](#data-exploration)
  * [Data Preperation](#data-preperation)
- * [Transfer Learning (EfficientNetB0)](#transfer-learning-efficientnetb0)
+ * [EfficientNetB0](#efficientnetb0)
  * [Experiments](#experiments)
 ## Overview
 
@@ -276,7 +276,7 @@ ds
 <PrefetchDataset shapes: ((None, 224, 224, 3), (None,)), types: (tf.float32, tf.int64)>
 ```
 #
-## Transfer Learning (EfficientNetB0)
+## EfficientNetB0
 
 **About EfficientNetB0:**
 EfficientNet is among the most efficient models, hence its name, that reachers high accuracy on both imagenet and common image classification transfer learning tasks. The base model, EfficientNetB0 provides an efficiency-oriented method of hyperparameter gridsearch while maintaining the least resolution and therefore the least time for modeling. Below, an architecture for the model can be viewed.
