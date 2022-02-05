@@ -154,7 +154,7 @@ def show_image_size(file_name):
     return list(image.shape)
 ```
 
-Using a image sample size of **25000** (5% of the dataset), let's set up a new dataframe containing the dimensions of the sample images which will include their `width`, `height`, and `color channels`:
+Using a image sample size of **2500** (5% of the dataset), let's set up a new dataframe containing the dimensions of the sample images which will include their `width`, `height`, and `color channels`:
 ```python
 import time
 sample_size = 2500
