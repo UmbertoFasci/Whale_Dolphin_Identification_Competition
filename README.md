@@ -6,7 +6,7 @@
  * [Overview](#overview)
  * [Data Exploration](#data-exploration)
  * [Data Preperation](#data-preperation)
- * [Convolutional Neural Network Model (CNN)](#convolutional-neural-network-model-cnn)
+ * [Transfer Learning (EfficientNetB0)](#transfer-learning-efficientnetb0)
  * [t-Distributed Stochastic Neighbor Embedding (tSNE)](#t---distributed-stochastic-neighbor-embedding-tSNE)
 
 ## Overview
@@ -186,7 +186,7 @@ Number of different image sizes in 2500 samples: 1341
 |Tensorflow ImageDataGenerator|Generate batches of tensor image data with real-time data augmentation. [Reference](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator#flow_from_directory)|[ImageDataGeneratorExperiment](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/experimentalimgdatagen.ipynb)|
 |Convolutional Variational Autoencoder|Takes high dimensional input data and compresses it into a smaller representation. [Reference](https://www.tensorflow.org/tutorials/generative/cvae)|[Incoming]|
 
-## Convolutional Neural Network Model (CNN)
+## Transfer Learning (EfficientNetB0)
 **In Progress**
 
 ## t-Distributed Stochastic Neighbor Embedding (tSNE)
