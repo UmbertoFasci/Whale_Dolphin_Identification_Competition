@@ -356,43 +356,43 @@ model.fit(ds, epochs=5)
 ```output
 Epoch 1/5
 
-2022-02-05 02:59:52.405200: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:185] None of the MLIR Optimization Passes are enabled (registered 2)
-2022-02-05 03:00:05.004541: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 348 of 1024
-2022-02-05 03:00:15.010811: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 730 of 1024
-2022-02-05 03:00:23.013789: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
-2022-02-05 03:00:25.414705: I tensorflow/stream_executor/cuda/cuda_dnn.cc:369] Loaded cuDNN version 8005
+2022-02-05 17:39:06.860953: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:185] None of the MLIR Optimization Passes are enabled (registered 2)
+2022-02-05 17:39:18.670639: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 410 of 1024
+2022-02-05 17:39:28.667404: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 855 of 1024
+2022-02-05 17:39:32.455512: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
+2022-02-05 17:39:33.976459: I tensorflow/stream_executor/cuda/cuda_dnn.cc:369] Loaded cuDNN version 8005
 
-1595/1595 [==============================] - 1533s 932ms/step - loss: 9.7631 - accuracy: 3.9190e-05
+1595/1595 [==============================] - 1253s 762ms/step - loss: 21.1889 - accuracy: 0.0012
 Epoch 2/5
 
-2022-02-05 03:26:26.881789: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 367 of 1024
-2022-02-05 03:26:36.927206: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 788 of 1024
-2022-02-05 03:26:43.352816: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
+2022-02-05 18:00:40.631584: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 356 of 1024
+2022-02-05 18:00:50.583611: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 784 of 1024
+2022-02-05 18:00:56.966988: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
 
-1595/1595 [==============================] - 1460s 899ms/step - loss: 9.6543 - accuracy: 3.9190e-05
+1595/1595 [==============================] - 1276s 783ms/step - loss: 21.4932 - accuracy: 0.0012
 Epoch 3/5
 
-2022-02-05 03:50:48.835766: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 367 of 1024
-2022-02-05 03:50:58.881305: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 767 of 1024
-2022-02-05 03:51:06.431605: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
+2022-02-05 18:21:56.725817: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 389 of 1024
+2022-02-05 18:22:06.698174: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 840 of 1024
+2022-02-05 18:22:11.229654: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
 
-1595/1595 [==============================] - 1465s 901ms/step - loss: 9.6543 - accuracy: 3.9190e-05
+1595/1595 [==============================] - 1270s 781ms/step - loss: 21.4932 - accuracy: 0.0012
 Epoch 4/5
 
-2022-02-05 04:16:10.717582: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 342 of 1024
-2022-02-05 04:16:20.749065: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 710 of 1024
-2022-02-05 04:16:29.193959: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
+2022-02-05 18:43:18.601180: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 364 of 1024
+2022-02-05 18:43:28.595300: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 832 of 1024
+2022-02-05 18:43:33.008295: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
 
-1595/1595 [==============================] - 1486s 914ms/step - loss: 9.6543 - accuracy: 3.9190e-05
+1595/1595 [==============================] - 1251s 769ms/step - loss: 21.4932 - accuracy: 0.0012
 Epoch 5/5
 
-2022-02-05 04:41:32.684198: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 326 of 1024
-2022-02-05 04:41:42.702428: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 701 of 1024
-2022-02-05 04:41:51.544939: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
+2022-02-05 19:04:40.568634: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 393 of 1024
+2022-02-05 19:04:50.549889: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:175] Filling up shuffle buffer (this may take a while): 846 of 1024
+2022-02-05 19:04:54.972195: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:228] Shuffle buffer filled.
 
-1595/1595 [==============================] - 1489s 915ms/step - loss: 9.6543 - accuracy: 3.9190e-05
+1595/1595 [==============================] - 1261s 775ms/step - loss: 21.4932 - accuracy: 0.0012
 
-<keras.callbacks.History at 0x7fc06ba69550>
+<keras.callbacks.History at 0x7f217576c250>
 ```
 #
 ## Formatting and Submitting Predictions
