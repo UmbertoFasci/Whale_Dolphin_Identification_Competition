@@ -1,4 +1,4 @@
-# Whale Dolphin Identification Competition
+# Whale and Dolphin Identification Competition
 > Kaggle competition (Happywhales - Whale and Dolphin Identification)
 
 **Contents**
