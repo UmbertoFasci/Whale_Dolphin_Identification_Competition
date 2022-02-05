@@ -293,7 +293,7 @@ EfficientNet is among the most efficient models, hence its name, that reachers h
 This image was found at this [Medium article](https://towardsdatascience.com/complete-architectural-details-of-all-efficientnet-models-5fd5b736142) by Vardan Agarwal.
 For more information about EfficientNetB0 and the other EfficientNet models please visit this [website](https://keras.io/examples/vision/image_classification_efficientnet_fine_tuning/) which documents them thoroughly.
 #
-Importing EfficientNEtB0
+Importing EfficientNetB0
 ```python
 from tensorflow.keras.applications.efficientnet import EfficientNetB0
 ```
@@ -310,5 +310,54 @@ Downloading data from https://storage.googleapis.com/keras-applications/efficien
 16711680/16705208 [==============================] - 0s 0us/step
 16719872/16705208 [==============================] - 0s 0us/step
 ```
+###  Model Setup
+```python
+inputs = tf.keras.Input(shape=(224, 224, 3))
+x = preprocess_input(inputs)
+x = base_model(x, training=False)
+x = tf.keras.layers.GlobalAveragePooling2D()(x)
+x = tf.keras.layers.Dense(1024, activation='relu')(x)
+x = tf.keras.layers.Dense(1024, activation='relu')(x)
+x = tf.keras.layers.Dense(1024, activation='relu')(x)
+x = tf.keras.layers.Dense(1024, activation='relu')(x)
+outputs = prediction_layer(x)
+
+model = tf.keras.Model(inputs, outputs)
+```
+```python
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+```
+```python
+model.summary()
+```
+```output
+Model: "model"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_2 (InputLayer)         [(None, 224, 224, 3)]     0         
+_________________________________________________________________
+efficientnetb0 (Functional)  (None, 7, 7, 1280)        4049571   
+_________________________________________________________________
+global_average_pooling2d (Gl (None, 1280)              0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 1024)              1311744   
+_________________________________________________________________
+dense_2 (Dense)              (None, 1024)              1049600   
+_________________________________________________________________
+dense_3 (Dense)              (None, 1024)              1049600   
+_________________________________________________________________
+dense_4 (Dense)              (None, 1024)              1049600   
+_________________________________________________________________
+dense (Dense)                (None, 15587)             15976675  
+=================================================================
+Total params: 24,486,790
+Trainable params: 24,444,767
+Non-trainable params: 42,023
+______________________________________________________________
+```
+**Model fit in progress**
 ## t-Distributed Stochastic Neighbor Embedding (tSNE)
 **In Progress**
