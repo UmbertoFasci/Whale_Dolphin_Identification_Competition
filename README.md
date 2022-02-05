@@ -284,12 +284,13 @@ ds
 ```output
 <PrefetchDataset shapes: ((None, 224, 224, 3), (None,)), types: (tf.float32, tf.int64)>
 ```
-
-
-
-
+#
 ## Transfer Learning (EfficientNetB0)
-**In Progress**
+
+**About EfficientNetB0:**
+EfficientNet is among the most efficient models, hence its name, that reachers high accuracy on both imagenet and common image classification transfer learning tasks. The base model, EfficientNetB0 provides an efficiency-oriented method of hyperparameter gridsearch while maintaining the least resolution and therefore the least time for modeling. As I am writing this, I am deep into a 2 hour long epoch, so I believe selecting the base model was a wise choice. Below, an architecture for the model can be viewed.
+
+
 
 ## t-Distributed Stochastic Neighbor Embedding (tSNE)
 **In Progress**
