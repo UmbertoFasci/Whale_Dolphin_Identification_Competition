@@ -290,7 +290,8 @@ ds
 **About EfficientNetB0:**
 EfficientNet is among the most efficient models, hence its name, that reachers high accuracy on both imagenet and common image classification transfer learning tasks. The base model, EfficientNetB0 provides an efficiency-oriented method of hyperparameter gridsearch while maintaining the least resolution and therefore the least time for modeling. As I am writing this, I am deep into a 2 hour long epoch, so I believe selecting the base model was a wise choice. Below, an architecture for the model can be viewed.
 ![EfficientNetB0 Architecture](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/EfficientNetB0_Arch.png)
-
+This image was found at this [Medium article](https://towardsdatascience.com/complete-architectural-details-of-all-efficientnet-models-5fd5b736142) by Vardan Agarwal.
+For more information about EfficientNetB0 and the other EfficientNet models please visit this [website](https://keras.io/examples/vision/image_classification_efficientnet_fine_tuning/) which documents them thoroughly.
 
 ## t-Distributed Stochastic Neighbor Embedding (tSNE)
 **In Progress**
