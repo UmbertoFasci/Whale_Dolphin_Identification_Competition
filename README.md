@@ -186,6 +186,59 @@ Number of different image sizes in 2500 samples: 1341
 |Tensorflow ImageDataGenerator|Generate batches of tensor image data with real-time data augmentation. [Reference](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator#flow_from_directory)|[ImageDataGeneratorExperiment](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/experimentalimgdatagen.ipynb)|
 |Convolutional Variational Autoencoder|Takes high dimensional input data and compresses it into a smaller representation. [Reference](https://www.tensorflow.org/tutorials/generative/cvae)|[Incoming]|
 
+### Data Preperation for EfficientNetB0
+
+Import packages for preprocessing:
+```python
+import PIL
+import PIL.image
+import tensorflow as tf
+```
+Create a list containing all the unique identifications in `train_df`:
+```python
+id_unique = train_df['individual_id'].unique()
+id_unique
+```
+```output
+array(['cadddb1636b9', '1a71fbb72250', '60008f293a2b', ...,
+       '3509cb6a8504', 'e880e47c06a4', 'bc6fcab946c4'], dtype=object)
+```
+Index the list:
+```python
+id_to_index = dict((name, index) for index, name in enumerate(id_unique))
+```
+Apply the new index to the images within `train_df`:
+```python
+image_id_index = [id_to_index[i] for i in train_df['individual_id']]
+train_df['label'] = image_id_index
+train_df.head()
+```
+| |`image`|`species`|`individual_id`|`index`|
+|-|-------|---------|---------------|-------|
+|0| xxxx1.jpg| species_name1| xxxxid1|1|
+|1| xxxx2.jpg| species_name2| xxxxid2|2|
+|2| xxxx3.jpg| species_name3| xxxxid3|3|
+|3| xxxx4.jpg| species_name4| xxxxid4|4|
+|4| xxxx5.jpg| species_name5| xxxxid5|5|
+
+Now let's collect the training image file paths for further use:
+```python
+train_image_paths = ['/kaggle/input/happy-whale-and-dolphin/train_images/' + img for img in train_df['image']]
+train_image_paths[:10]
+```
+```output
+['/kaggle/input/happy-whale-and-dolphin/train_images/00021adfb725ed.jpg',
+ '/kaggle/input/happy-whale-and-dolphin/train_images/000562241d384d.jpg',
+ '/kaggle/input/happy-whale-and-dolphin/train_images/0007c33415ce37.jpg',
+ '/kaggle/input/happy-whale-and-dolphin/train_images/0007d9bca26a99.jpg',
+ '/kaggle/input/happy-whale-and-dolphin/train_images/00087baf5cef7a.jpg',
+ '/kaggle/input/happy-whale-and-dolphin/train_images/000a8f2d5c316a.jpg',
+ '/kaggle/input/happy-whale-and-dolphin/train_images/000be9acf46619.jpg',
+ '/kaggle/input/happy-whale-and-dolphin/train_images/000bef247c7a42.jpg',
+ '/kaggle/input/happy-whale-and-dolphin/train_images/000c3d63069748.jpg',
+ '/kaggle/input/happy-whale-and-dolphin/train_images/000c476c11bad5.jpg']
+```
+
 ## Transfer Learning (EfficientNetB0)
 **In Progress**
 
