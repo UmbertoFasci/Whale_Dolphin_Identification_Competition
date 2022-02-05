@@ -299,7 +299,16 @@ from tensorflow.keras.applications.efficientnet import EfficientNetB0
 ```
 Now we can set up our preprocess_input and our base model:
 ```python
+preprocess_input = tf.keras.applications.efficientnet.preprocess_input
 
+base_model = EfficientNetB0(input_shape=(224, 224, 3), include_top=False, weights='imagenet')
+base_model.trainable=True
+prediction_layer = tf.keras.layers.Dense(len(id_unique))
+```
+```output
+Downloading data from https://storage.googleapis.com/keras-applications/efficientnetb0_notop.h5
+16711680/16705208 [==============================] - 0s 0us/step
+16719872/16705208 [==============================] - 0s 0us/step
 ```
 ## t-Distributed Stochastic Neighbor Embedding (tSNE)
 **In Progress**
