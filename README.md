@@ -185,7 +185,7 @@ Number of different image sizes in 2500 samples: 1341
 |Tensorflow Smart Resize|Resize images to a target size without aspect ratio distortion. [Reference](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/smart_resize)|[Incoming]|
 |Tensorflow ImageDataGenerator|Generate batches of tensor image data with real-time data augmentation. [Reference](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator#flow_from_directory)|[ImageDataGeneratorExperiment](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/experimentalimgdatagen.ipynb)|
 |Convolutional Variational Autoencoder|Takes high dimensional input data and compresses it into a smaller representation. [Reference](https://www.tensorflow.org/tutorials/generative/cvae)|[Incoming]|
-
+#
 ### Data Preperation for EfficientNetB0
 
 Import packages for preprocessing:
@@ -238,6 +238,55 @@ train_image_paths[:10]
  '/kaggle/input/happy-whale-and-dolphin/train_images/000c3d63069748.jpg',
  '/kaggle/input/happy-whale-and-dolphin/train_images/000c476c11bad5.jpg']
 ```
+Build helper functions to resize the images:
+```python
+def image_preprocess(image):
+    image = tf.image.decode_jpeg(image, channels=3)
+    image = tf.image.resize(image, [224, 224])
+    image = image / 255.0
+    return image
+```
+```python
+def load_and_process(path):
+    image = tf.io.read_file(path)
+    return image_preprocess(image)
+```
+Test the function:
+```python
+for i in range(22):
+    temp_img_path = train_image_paths[i]
+    temp_label = image_id_index[i]
+    plt.imshow(load_and_process(temp_img_path))
+    plt.grid(False)
+    plt.title(id_unique[i] + " (" + train_df['species'][i] + ")")
+```
+This will return a sample resized image within the `train_images` folder. You can change the image by changing the number in place of **22** in the function header.
+#
+### Formatting the data to be used in Tensorflow
+
+First let's generate datasets: `paths_ds`, `images_ds`, `labels_ds`, `image_labels_ds`:
+```python
+paths_ds = tf.data.Dataset.from_tensor_slices(train_image_paths)
+images_ds = paths_ds.map(load_and_process, num_parallel_calls=tf.data.experimental.AUTOTUNE)
+labels_ds = tf.data.Dataset.from_tensor_slices(tf.cast(image_id_index, tf.int64))
+image_labels_ds = tf.data.Dataset.zip((images_ds, labels_ds))
+```
+The `image_labels_ds` is a result of binding together (zipping) the `images_ds` and `labels_ds`.
+
+### Dataset tuning
+```python
+batch_size = 32
+ds = image_labels_ds.shuffle(buffer_size=1024)
+ds = ds.batch(batch_size)
+ds = ds.prefetch(buffer_size=tf.data.experimental.AUTOTUNE)
+ds
+```
+```output
+<PrefetchDataset shapes: ((None, 224, 224, 3), (None,)), types: (tf.float32, tf.int64)>
+```
+
+
+
 
 ## Transfer Learning (EfficientNetB0)
 **In Progress**
