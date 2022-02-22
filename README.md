@@ -422,10 +422,6 @@ Now I can directly predict on the test dataset I have created `test_ds`:
 pred = model.predict(test_ds)
 ```
 **Predictions are not sufficient. Next I will explore how to look at this as a clustering/similarity problem**
-## Next steps
-1. Generate image embeddings through model training
-2. These embeddings should then be compared with previously generated ones to figure out which clusters the `new_individual` is closest to.
-3. Use this general idea to generate predictions.
 
 
 ## Experiments
