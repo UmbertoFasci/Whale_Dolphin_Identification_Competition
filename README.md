@@ -429,3 +429,4 @@ pred = model.predict(test_ds)
 |--------------|---------------|--------|
 |Tensorflow ImageDataGenerator|Generate batches of tensor image data with real-time data augmentation. [Reference](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator#flow_from_directory)|[ImageDataGeneratorExperiment](https://github.com/UmbertoFasci/Whale_Dolphin_Identification_Competition/blob/main/experimentalimgdatagen.ipynb)|
 |Siamese Network|Generate network containing two or more identical subnetworks to use for image embedding. [Reference](https://keras.io/examples/vision/siamese_network/)|File in Progress|
+|Multi-output Branched Models|Writeup of constructing multi-output model architecture with Functional API.| Repository in Progress|  
